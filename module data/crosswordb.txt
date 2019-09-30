@@ -1,0 +1,80 @@
+#include <iostream>
+
+using namespace std;
+
+char f[10][10];
+char ch1[10];
+char ch2[10];
+int col = 0;
+int row = 0;
+
+void initializingMatrix();
+void acceptingInputFromUser();
+void determineOverlap();
+void populateMatrix();
+void printMatrix();
+/*
+int main() {
+    initializingMatrix();
+    acceptingInputFromUser();
+    determineOverlap();
+    populateMatrix();
+    printMatrix();
+    return 0;
+}
+*/
+void initializingMatrix() {
+    int r=0, c=0;
+    for(r=0; r<10; r++) {
+        for(c=0; c<10; c++) {
+            f[r][c] = ' ';
+        }
+    }
+}
+
+void acceptingInputFromUser() {
+    cin >> ch1;
+    cin >> ch2;
+}
+
+void determineOverlap() {
+    int i=0, j=0;
+    bool flag = false;
+    for(i=0; i<10; i++) {
+        for(j=0; j<10; j++) {
+            if(ch1[i] == ch2[j]) {
+                flag = true;
+                break;
+            }
+        }
+        if(flag == true) {
+            break;
+        }
+    }
+    col = i;
+    row = j;
+}
+
+void populateMatrix() {
+    int i=0,j=0;
+    for(i=row,j=0;j<10;j++) {
+        if(ch1[j] != '\0') {
+            f[i][j] = ch1[j];
+        }
+    }
+    for(i=0,j=col;i<10;i++) {
+        if(ch2[i] != '\0') {
+            f[i][j] = ch2[i];
+        }
+    }
+}
+
+void printMatrix() {
+    int r=0,c=0;
+    for(r=0; r<10; r++) {
+        for(c=0; c<10; c++) {
+            cout << f[r][c] << "  ";
+        }
+        cout << endl;
+    }
+}

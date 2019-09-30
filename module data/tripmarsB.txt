@@ -1,0 +1,72 @@
+#include <iostream>
+
+using namespace std;
+
+int x=0,y=0,x1=0,y1=0;
+char direction;
+char commands[20];
+void acceptInp();
+void moveNorth(int);
+void moveSouth(int);
+void moveWest(int);
+void moveEast(int);
+
+void acceptInp() {
+    cin >> x;
+    cin >> y;
+    cin >> x1;
+    cin >> y1;
+    cin >> direction;
+    cin >> commands;
+}
+
+void moveNorth(int n) {
+    int c = y1-n;
+    if(c >= 0)
+        cout << x1 <<" " << c << " N" << endl;
+    else
+        cout << x1 << " " << y1 << " N" << endl << "Out of bounds" << endl;
+}
+
+void moveSouth(int s) {
+    int c = y1+s;
+    if(c <= y)
+        cout << x1 << ", " << c << " S" << endl;
+    else
+        cout << x1 << " " << y1 << " S" << endl << "Out of bounds" << endl;
+}
+
+void moveWest(int w) {
+    int c = x1-w;
+    if(c >= 0)
+        cout << c <<", " << y1 << " W" << endl;
+    else
+        cout << x1 << " " << y1 << " W" << endl << "Out of bounds" << endl;
+}
+
+void moveEast(int e) {
+    int c = x1+e;
+    if(c <= x)
+        cout << c <<", "<< y1 << " E" << endl;
+    else
+        cout << x1 << " " << y1 << " E" << endl << "Out of bounds" << endl;
+}
+/*
+int main() {
+    acceptInp();
+    int commandLength = 0;
+    while(commands[commandLength] != '\0') {
+        commandLength++;
+    }
+    if(direction == 'N' || direction == 'n') {
+        moveNorth(commandLength);
+    } else if(direction == 'S' || direction == 's') {
+        moveSouth(commandLength);
+    } else if(direction == 'W' || direction == 'w') {
+        moveWest(commandLength);
+    } else if(direction == 'E' || direction == 'e') {
+        moveEast(commandLength);
+    }
+    return 0;
+}
+*/
