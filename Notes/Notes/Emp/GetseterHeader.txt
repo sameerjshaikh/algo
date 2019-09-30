@@ -1,0 +1,41 @@
+#pragma once
+#include<iostream>
+#include<string>
+using namespace std;
+
+class Employee
+{
+	int id;
+	string name, address,contact;
+
+public:
+
+	void setDetails(int id,string name, string contact,string address)
+	{
+		
+		this->id=id;
+		this->name = name;
+		this->address = address;
+		this->contact = contact;
+	}
+
+	string getName()
+	{
+		return name;
+	}
+
+	int getId()
+	{
+		return id;
+	}
+	string getAddre()
+	{
+		return address;
+	}
+	string getCont()
+	{
+		return contact;
+	}
+
+};
+

@@ -1,0 +1,73 @@
+here i m calling enter data in swith fun , so i need to declare it global.
+
+#include <iostream>
+#include <string>
+using namespace std;
+void swith();
+void enterData();
+
+
+int t = -1;
+
+void swith()
+{
+	int d;
+	cout << "presss 1 for enter into stack";
+	cout << "presss 2 for delete from stack";
+	cout << "presss 3 for display into stack";
+	cin >> d;
+	//int s;
+	//bool h;
+	switch (d)
+	{
+	case 1:
+		//cout << "presss 1 for enter into stack";
+	    enterData();
+		swith();
+	case 2:
+		//cout << "presss 1 for enter into stack";
+
+	//	h = DeleteData();
+		//return h;
+	case 3:
+		//cout << "presss 1 for enter into stack";
+
+		enterData();
+		//return h;
+	default:
+		break;
+	}
+}
+
+void enterData()
+{
+	int a[5];
+	int max = 5;
+	//static int t = -1;
+	if (t == max - 1)
+	{
+		cout << "Stack is full, please delete for insertion";
+		swith();
+	}
+	else
+	{
+		int e;
+		t++;
+		cout << t;
+		cout << "enter the value";
+		cin >> e;
+		a[t] = e;
+		swith();
+	}
+}
+int main()
+{
+	swith();
+//	bool k;
+//
+//	do {
+//		
+//		k = swith();
+//	//	enterData();
+//	} while (k);
+}

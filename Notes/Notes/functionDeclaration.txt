@@ -1,0 +1,2 @@
+void insertionsort(int);
+void display(int);

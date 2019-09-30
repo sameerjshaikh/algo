@@ -1,0 +1,5 @@
+string s="this  is my";
+getline(cin,s);
+
+if we enter a string using cin ,it allowes us till the space encountered but once space encountred it does not get it into string
+so to add a santance into a string we use getline(cin,string);

@@ -1,0 +1,18 @@
+#include<iostream>
+#include<string>
+using namespace std;
+int main()
+{
+	int val1,val2;
+	cout << "enter two values" << endl;
+	cin >> val1 >> val2;
+	
+	cout << "Multiplication of "<<val1<<" & "<<val2<<endl;
+	for (int i = 1;i <= val2;i++) 
+	{
+		
+		cout << val1<<"*"<<i<<"="<<val1 * i <<endl;
+		//cout << val2 * i << endl;
+	}
+	
+}

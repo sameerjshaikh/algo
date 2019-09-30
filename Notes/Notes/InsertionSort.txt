@@ -1,0 +1,51 @@
+#include<iostream>
+using namespace std;
+void Takeinput();
+void insertionsort(int);
+void display(int);
+int* IN=NULL;
+int SIZE;
+int main()
+{
+	Takeinput();
+}
+void Takeinput()
+{
+	
+	cout << "Enter size of array"<<endl;
+	cin >> SIZE;
+	IN = new int[SIZE];
+	//IN[SIZE] = { 1,2,3,4 };
+	
+	cout << "Enter "<<SIZE<< " Elements"<<" ";
+	for (int i = 0;i < SIZE;i++)
+	{
+		cin >> IN[i];
+	}
+
+	insertionsort(SIZE);
+}
+void insertionsort(int SIZE)
+{
+	int temp = 0;
+	for (int j = 0;j < SIZE-1;j++)
+	{
+		for (int i = j + 1;i < SIZE;i++)
+		{
+			if (IN[j] > IN[i])
+			{
+				temp = IN[i];
+				IN[i] = IN[j];
+				IN[j] = temp;
+			}
+		}
+	}
+	display(SIZE);
+}
+void display(int SIZE) {
+
+	for (int i = 0;i < SIZE;i++)
+	{
+		cout << IN[i]<<" ";
+	}
+}

@@ -1,0 +1,30 @@
+#include<iostream>
+#include<string>
+//#include "pch.h"
+using namespace std;
+
+
+
+class Apple {
+public:
+
+	 void TestFunc() {
+
+//this variable a cannot be called out side of a class using class name or object of class
+//so we use its value out side the func we have to initialized a globle variable with its value
+		int a = 0;
+		cout << "Test Func" << endl;
+		
+	}
+};
+
+
+
+int main() {
+
+	Apple kApple;
+	cout<<Apple.a << endl;
+//here a can not be accessed using class name or object so to use it either return it thro 
+//func or initialized globle variable with its value.
+	/**********************************************************************/
+}

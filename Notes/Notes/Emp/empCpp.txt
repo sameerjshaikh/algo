@@ -1,0 +1,166 @@
+
+#include "GeterSeter.h"
+#include "EmployeeHeader.h"
+void InsertData();
+int InsertOperation();
+void display();
+void search();
+void UpdateEmp();
+void DataBaseEmp(int,string, string,string);
+Employee emp[100];
+
+int main()
+{
+	while (1)
+	{
+		int a=InsertOperation();
+		switch (a)
+		{
+		case 1:
+			InsertData();
+			break;
+		case 2:
+			display();
+			break;
+		case 3:
+			search();
+			break;
+		case 4:
+			UpdateEmp();
+			break;
+		default:
+			break;
+		}
+	}
+}
+int InsertOperation()
+{
+	int choice;
+	cout << "------Enter Choice-------\n ";
+	cout << "\n1.Add Employee\n2.Display Employee\n3.Search Employee\n3.Update Employee\n";
+
+	cin >> choice;
+	return choice;
+
+}
+void InsertData()
+{
+	int Id;
+	string Name, Addr, Cont;
+
+	cout << "\nEnter Emp Id"<<endl;
+	cin >> Id;
+
+	cout << "\nEnter Emp Name" << endl;
+	cin >> Name;
+
+	cout << "\nEnter Emp Contact No" << endl;
+	cin >> Cont;
+
+	cout << "\nEnter Emp Address" << endl;
+	cin >> Addr;
+
+	DataBaseEmp(Id, Name, Cont, Addr);
+}
+
+void DataBaseEmp(int Id,string Name, string Cont,string Addr)
+{
+	for (int i = 0;i < 100;i++)
+	{
+		if (emp[i].getName() == "")
+		{
+			emp[i].setDetails(Id, Name, Cont, Addr);
+			return;
+		}
+		else
+			continue;
+	}
+}
+
+void display()
+{
+	cout << "ID   NAME   CONTACT   ADDRESS"<<endl;
+	for(int i=0;i<100;i++)
+	{ 
+		if (emp[i].getId() == 0) 
+		{
+			continue;
+		}
+		else
+		{
+			cout << emp[i].getId() << " ";
+			cout << "  " << emp[i].getName() << " ";
+			cout << "  " << emp[i].getAddre() << " ";
+			cout << "  " << emp[i].getCont() << " " << endl;
+		}
+	}
+}
+void search()
+{
+	int id;
+	cout << "Enter id to search" << endl;
+	cin >> id;
+	for (int i = 0;i < 100;i++)
+	{
+		if (emp[i].getId() == id)
+		{
+			cout << emp[i].getId() << " ";
+			cout << "  " << emp[i].getName() << " ";
+			cout << "  " << emp[i].getAddre() << " ";
+			cout << "  " << emp[i].getCont() << " " << endl;
+		}
+		else
+		{
+			if (i == 99)
+			{
+				cout << "Details not found"<< " " << endl;
+				return;
+			}
+			else
+			{
+				continue;
+			}
+			
+		}
+	}
+}
+void UpdateEmp()
+{
+	int id;
+	string Name, Addr, cont;
+	cout << "Enter Emp id to update employee details" << endl;
+	cin >> id;
+	for (int i = 0;i < 100;i++)
+	{
+		if (emp[i].getId() == id)
+		{
+			cout << emp[i].getId() << " ";
+			cout << emp[i].getName() << " ";
+			cout << emp[i].getAddre() << " ";
+			cout << emp[i].getCont() << " " << endl;
+
+			cout << "Enter New Name" << endl;
+			cin >> Name;
+			cout << "Enter New Contact" << endl;
+			cin >> cont;
+
+			cout << "Enter New Address" << endl;
+			cin >> Addr;
+			
+			emp[i].setDetails(emp[i].getId(), Name, cont, Addr);
+			return;
+		}
+		else {
+			if (i == 99)
+			{
+				cout << "Details not found" << " " << endl;
+				return;
+			}
+			else
+			{
+				continue;
+			}
+			
+		}
+	}
+}
