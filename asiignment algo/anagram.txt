@@ -1,0 +1,76 @@
+#include<iostream>
+#include<vector>
+#include<algorithm>
+
+using namespace std;
+
+int main() {
+    int strNo=0, found=0, count=0, flag=0;
+	vector<string> aVector;
+	string* anagramList;
+	string temp;
+
+	cin >> strNo;
+	anagramList = new string[strNo];
+
+	
+	for (int i = 0;i < strNo;i++) {
+		cin >> anagramList[i];
+	}
+	//cout << "Anagram size: " << anagramList->length() << endl;
+	for (int i = 0;i < strNo;i++) {
+		flag = 0;
+		aVector.push_back(anagramList[i]);
+		sort(anagramList[i].begin(), anagramList[i].end());
+		for (int j = i+1;j < strNo;j++) {
+			if ((anagramList[i].compare(anagramList[j])) == 0) {
+				continue;
+			}
+			else {
+				if (anagramList[i].length() == anagramList[j].length()) {
+					count = 0;
+					found = anagramList[j].find_first_of(anagramList[i]);
+					while (found != -1) {
+						count++;
+						found = anagramList[j].find_first_of(anagramList[i], found + 1);
+					}
+					if ((size_t)count == anagramList[i].length()) {
+
+						temp = anagramList[j];
+						sort(temp.begin(), temp.end());
+						if (anagramList[i] == temp) {
+							aVector.push_back(anagramList[j]);
+							flag = 1;
+						}
+						
+						//cout << "Second push : " << aVector.size() << endl;
+						
+					}
+						
+				}
+			}
+		/*jmpPoint:
+			continue;*/
+
+		}
+		if (aVector.empty()) {
+			continue;
+		}else if (flag == 0) {
+			aVector.pop_back();
+		}
+
+	}
+	//cout <<"Vector size : " <<aVector.size();
+	if (aVector.empty()) {
+		cout << "No match!";
+	}
+	else {
+		//cout << "Hello";
+	//	cout << endl;
+		for (size_t k = 0;k < aVector.size();k++) {
+			cout << aVector[k] << endl;
+		}
+	}
+	
+	return 0;
+}
